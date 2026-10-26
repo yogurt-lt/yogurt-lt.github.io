@@ -515,6 +515,11 @@ ol, ul { margin: 0; padding: 0; }
 .contact-label { color: var(--text-faint); font-size: 14px; }
 .contact-value { color: var(--text-soft); }
 
+/* These entries have no dates, so they do not need an empty year column. */
+#contributionList .award-item { display: block; }
+#contributionList .award-year { display: none; }
+.lang-toggle { text-decoration: none; }
+
 /* ============================ 页脚 ============================ */
 .site-footer {
   border-top: 1px solid var(--line);

@@ -11,6 +11,7 @@
    ========================================================================= */
 
 const SITE = {
+  updated: "2026-10-26",
 
   /* ---------------- 1. 界面文字（导航栏、标题等） ---------------- */
   ui: {
@@ -23,6 +24,7 @@ const SITE = {
       "nav.patents": "专利",
       "nav.conferences": "学术会议",
       "nav.projects": "项目与实习",
+      "nav.contributions": "其他信息",
       "nav.competitions": "竞赛获奖",
       "nav.honors": "荣誉奖励",
       "nav.contact": "联系方式",
@@ -48,6 +50,7 @@ const SITE = {
       "nav.patents": "Patents",
       "nav.conferences": "Conferences",
       "nav.projects": "Projects",
+      "nav.contributions": "Other Information",
       "nav.competitions": "Competitions",
       "nav.honors": "Honors",
       "nav.contact": "Contact",
@@ -289,11 +292,29 @@ const SITE = {
     }
   ],
 
+  contributions: [
+    {
+      title: { zh: "《工程光学》第五版", en: "Engineering Optics, Fifth Edition (Chinese)" },
+      desc: {
+        zh: "有幸参与《工程光学》第五版出版相关工作。",
+        en: "I had the privilege of supporting work related to the publication of the fifth edition of Engineering Optics."
+      },
+      link: "http://cs.cmpedu.com/books/book/5611469.htm"
+    },
+    {
+      title: { zh: "Optomech Workflow · 光机结构设计 Skill", en: "Optomech Workflow · Optomechanical Design Skill" },
+      desc: {
+        zh: "我开发的开源 AI 光机结构设计 Skill：从光学模型出发，辅助推理装配顺序、定位与固定方式，生成截面图及适用于 SolidWorks / FreeCAD 的可编辑 CAD 初稿。",
+        en: "An open-source AI skill I developed for optomechanical design. Starting from optical models, it helps reason through assembly sequences, positioning and retention, and generates section drawings and editable CAD drafts for SolidWorks and FreeCAD."
+      },
+      link: "https://yogurt-lt.github.io/optomech-workflow/"
+    }
+  ],
+
   /* ---------------- 10. 联系方式 ---------------- */
-  /* 不想公开电话就把 phone 那一行删掉 —— 学术主页通常只留邮箱。 */
+  /* 公开联系方式。 */
   contact: [
     { label: { zh: "邮箱", en: "Email" }, value: "loutaiyuange@tju.edu.cn", link: "mailto:loutaiyuange@tju.edu.cn" },
-    { label: { zh: "电话", en: "Phone" }, value: "137-8229-7718", link: "tel:+8613782297718" },
     { label: { zh: "GitHub", en: "GitHub" }, value: "github.com/yogurt-lt", link: "https://github.com/yogurt-lt/" },
     { label: { zh: "ORCID", en: "ORCID" }, value: "0009-0004-0142-462X", link: "https://orcid.org/0009-0004-0142-462X" },
     { label: { zh: "单位", en: "Affiliation" }, value: { zh: "天津大学 精密仪器与光电子工程学院", en: "School of Precision Instrument and Opto-Electronics Engineering, Tianjin University" }, link: "" },

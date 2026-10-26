@@ -6,8 +6,6 @@
 (function () {
   "use strict";
 
-  var STORAGE_KEY = "site-lang";
-
   /* ------------------------- 小工具 ------------------------- */
   function t(value, lang) {
     if (value === null || value === undefined) return "";
@@ -41,18 +39,12 @@
   }
 
   /* ------------------------- 语言切换 ------------------------- */
-  var currentLang = "zh";
-  try {
-    var saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved === "en" || saved === "zh") currentLang = saved;
-  } catch (e) { /* 本地文件打开时可能不可用，忽略 */ }
+  var currentLang = document.documentElement.lang === "en" ? "en" : "zh";
 
   function setLang(lang) {
     currentLang = lang === "en" ? "en" : "zh";
     document.documentElement.lang = currentLang === "en" ? "en" : "zh-CN";
     document.documentElement.setAttribute("data-lang", currentLang);
-
-    try { window.localStorage.setItem(STORAGE_KEY, currentLang); } catch (e) { /* ignore */ }
 
     // 1) 更新所有 data-i18n 的静态文字
     var nodes = document.querySelectorAll("[data-i18n]");
@@ -316,6 +308,7 @@
     renderProjects();
     renderAwards("competitionList", SITE.competitions);
     renderAwards("honorList", SITE.honors);
+    renderAwards("contributionList", SITE.contributions);
     renderContact();
   }
 
@@ -383,7 +376,7 @@
     var toggle = document.getElementById("langToggle");
     if (toggle) {
       toggle.addEventListener("click", function () {
-        setLang(currentLang === "zh" ? "en" : "zh");
+        window.location.href = currentLang === "zh" ? "en.html" : "index.html";
       });
     }
 
@@ -407,9 +400,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     var updated = document.getElementById("lastUpdated");
     if (updated) {
-      var d = new Date();
-      var pad = function (n) { return (n < 10 ? "0" : "") + n; };
-      updated.textContent = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+      updated.textContent = SITE.updated;
     }
     bindEvents();
     bindGalleryClicks();
